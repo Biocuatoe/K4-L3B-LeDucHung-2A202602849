@@ -1,0 +1,222 @@
+================================================================================
+KET QUA BENCHMARK - Shopee Policy Retrieval
+Timestamp: 2026-09-20
+Embedder: mock (MD5 hash-based, no semantic meaning)
+================================================================================
+
+============================================================
+STRATEGY: FixedSize (size=300, overlap=30)
+Chunker: FixedSizeChunker
+============================================================
+Total chunks indexed: 87
+
+--- Query 1: Thời hạn đổi trả là bao nhiêu ngày kể từ ngày nhận hàng?
+    Filter: None
+    Gold doc_id: buyer-return-refund-policy
+      #1 score=0.2159 doc_id=dispute-resolution-policy#13 
+          content: xét lại (Người bán) | 03 ngày từ khi nhận quyết định | | Thời gian hoàn tiền | 03 - 15 ngày làm việc...
+      #2 score=0.2115 doc_id=seller-return-refund-obligations#2 
+          content: i Shopee can thiệp, quyết định của Shopee là **cuối cùng** và người bán bắt buộc phải tuân thủ.  ## ...
+      #3 score=0.2066 doc_id=buyer-product-condition-requirements#2 
+          content: n chức năng  - Sản phẩm phải còn **nguyên vẹn về mặt cấu trúc và chức năng**. - Không có vết trầy xư...
+
+--- Query 2: Điều kiện để được đổi trả là gì?
+    Filter: None
+    Gold doc_id: buyer-return-refund-policy
+      #1 score=0.3264 doc_id=buyer-product-condition-requirements#2 
+          content: n chức năng  - Sản phẩm phải còn **nguyên vẹn về mặt cấu trúc và chức năng**. - Không có vết trầy xư...
+      #2 score=0.2281 doc_id=dispute-resolution-policy#4 
+          content: g chứng (hình ảnh, video, mô tả) để hỗ trợ lập trường của mình. - Shopee khuyến khích giải quyết ở c...
+      #3 score=0.2277 doc_id=seller-warranty-handling#2 
+          content: iện tử có giá trị cao (trên 5.000.000 VND), thời hạn phản hồi khuyến nghị là **01 ngày làm việc**.  ...
+
+--- Query 3: Quy trình hoàn tiền diễn ra như thế nào?
+    Filter: None
+    Gold doc_id: buyer-refund-process
+      #1 score=0.2681 doc_id=general-terms-conditions#3 
+          content: Người mua  - Được cung cấp thông tin chính xác, đầy đủ về sản phẩm trước khi mua. - Được bảo vệ quyề...
+      #2 score=0.2468 doc_id=dispute-resolution-policy#9 
+          content: can thiệp giải quyết tranh chấp, Shopee có quyền:  - Yêu cầu Người bán hoàn tiền cho Người mua (nếu ...
+      #3 score=0.2424 doc_id=seller-warranty-handling#4 
+          content: ả đánh giá cho người mua, đề xuất một trong các phương án: - Bảo hành miễn phí (sửa chữa hoặc đổi mớ...
+
+--- Query 4: Những trường hợp nào không được đổi trả?
+    Filter: None
+    Gold doc_id: buyer-excluded-categories
+      #1 score=0.2390 doc_id=buyer-product-condition-requirements#7 
+          content: ận chuyển ban đầu. - Trong trường hợp này, người mua **không phải chịu phí vận chuyển** khi gửi hoàn...
+      #2 score=0.2342 doc_id=seller-warranty-handling#0 
+          content: # Quy trình xử lý bảo hành và khiếu nại dành cho người bán  ## 1. Tổng quan  Người bán có thể thiết ...
+      #3 score=0.2269 doc_id=buyer-return-refund-policy#9 
+          content: hí vận chuyển khuyến mãi, mã giảm giá đã sử dụng)....
+
+--- Query 5: Trong vòng bao lâu kể từ khi nhận yêu cầu, người bán phải phản hồi yêu cầu đổi t
+    Filter: {'audience': 'seller'}
+    Gold doc_id: seller-return-refund-obligations
+
+    [UNFILTERED - top 3 of 5]:
+      #1 score=0.3352 doc_id=dispute-resolution-policy#9
+          content: can thiệp giải quyết tranh chấp, Shopee có quyền:  - Yêu cầu Người bán hoàn tiền cho Người mua (nếu ...
+      #2 score=0.2134 doc_id=general-terms-conditions#0
+          content: # Điều khoản sử dụng dịch vụ Shopee  ## 1. Phạm vi áp dụng  Các Điều khoản Sử dụng Dịch vụ này ("Điề...
+      #3 score=0.1647 doc_id=seller-warranty-handling#3
+          content: họa.  ### Bước 2: Đánh giá lỗi Người bán xem xét thông tin và hình ảnh để xác định: - Lỗi có thuộc p...
+
+    [FILTERED - top 3]:
+      #1 score=0.1647 doc_id=seller-warranty-handling#3 
+          content: họa.  ### Bước 2: Đánh giá lỗi Người bán xem xét thông tin và hình ảnh để xác định: - Lỗi có thuộc p...
+      #2 score=0.1554 doc_id=seller-warranty-handling#10 
+          content: **: Giảm 0.5 điểm uy tín/lần vi phạm. - **Từ chối bảo hành không có lý do**: Phạt 50.000 VND/lần + g...
+      #3 score=0.1375 doc_id=seller-return-refund-obligations#0 
+          content: # Quy định xử lý đổi trả dành cho người bán  ## 1. Tổng quan trách nhiệm  Người bán trên Shopee có t...
+
+============================================================
+STRATEGY: Sentence (max=3 sentences)
+Chunker: SentenceChunker
+============================================================
+Total chunks indexed: 83
+
+--- Query 1: Thời hạn đổi trả là bao nhiêu ngày kể từ ngày nhận hàng?
+    Filter: None
+    Gold doc_id: buyer-return-refund-policy
+      #1 score=0.2582 doc_id=seller-warranty-handling#9 
+          content: - Quyết định của Shopee là cuối cùng. ### Khiếu nại cấp 3: Cơ quan có thẩm quyền Nếu cả hai bên khôn...
+      #2 score=0.2264 doc_id=general-terms-conditions#2 
+          content: - **"Sản phẩm"** là hàng hóa hoặc dịch vụ được đăng bán trên nền tảng Shopee. - **"Đơn hàng"** là gi...
+      #3 score=0.2261 doc_id=seller-return-refund-obligations#3 
+          content: - Sau khi nhận được sản phẩm hoàn trả, người bán xác nhận với Shopee trong vòng **02 ngày làm việc**...
+
+--- Query 2: Điều kiện để được đổi trả là gì?
+    Filter: None
+    Gold doc_id: buyer-return-refund-policy
+      #1 score=0.3207 doc_id=dispute-resolution-policy#9 
+          content: - Hoàn tiền trực tiếp từ tài khoản Người bán cho Người mua. - Trừ tiền từ tài khoản Người bán để bồi...
+      #2 score=0.2848 doc_id=buyer-return-refund-policy#0 
+          content: # Chính sách đổi trả và hoàn tiền cho người mua  ## 1. Thời hạn đổi trả  Người mua có thể yêu cầu đổ...
+      #3 score=0.2750 doc_id=buyer-excluded-categories#6 
+          content: Giữ lại hóa đơn và hình ảnh sản phẩm khi nhận hàng....
+
+--- Query 3: Quy trình hoàn tiền diễn ra như thế nào?
+    Filter: None
+    Gold doc_id: buyer-refund-process
+      #1 score=0.2944 doc_id=buyer-excluded-categories#1 
+          content: - Sản phẩm **không đúng với mô tả** trên trang bán (sai model, sai màu, thiếu phụ kiện). - Sản phẩm ...
+      #2 score=0.2573 doc_id=seller-warranty-handling#4 
+          content: - Bảo hành có thu phí (sản phẩm đã hết hạn hoặc lỗi do người mua). - Từ chối bảo hành (kèm lý do cụ ...
+      #3 score=0.1852 doc_id=buyer-excluded-categories#6 
+          content: Giữ lại hóa đơn và hình ảnh sản phẩm khi nhận hàng....
+
+--- Query 4: Những trường hợp nào không được đổi trả?
+    Filter: None
+    Gold doc_id: buyer-excluded-categories
+      #1 score=0.3300 doc_id=buyer-excluded-categories#5 
+          content: 3. Đọc kỹ điều kiện đổi trả trong mô tả sản phẩm. 4....
+      #2 score=0.2915 doc_id=general-terms-conditions#5 
+          content: - Nhận và kiểm tra sản phẩm khi giao hàng; thông báo ngay nếu có vấn đề. - Không sử dụng nền tảng ch...
+      #3 score=0.2820 doc_id=seller-warranty-handling#3 
+          content: - Lỗi do người mua hay do nhà sản xuất. - Sản phẩm có còn trong thời hạn bảo hành không. ### Bước 3:...
+
+--- Query 5: Trong vòng bao lâu kể từ khi nhận yêu cầu, người bán phải phản hồi yêu cầu đổi t
+    Filter: {'audience': 'seller'}
+    Gold doc_id: seller-return-refund-obligations
+
+    [UNFILTERED - top 3 of 5]:
+      #1 score=0.2829 doc_id=seller-warranty-handling#10
+          content: Mức phạt khi vi phạm quy định bảo hành  - **Phản hồi trễ**: Giảm 0.5 điểm uy tín/lần vi phạm. - **Từ...
+      #2 score=0.2465 doc_id=dispute-resolution-policy#12
+          content: Thời hạn quan trọng  | Hành động | Thời hạn | |---|---| | Gửi yêu cầu đổi trả (Người mua) | 07 ngày ...
+      #3 score=0.2406 doc_id=buyer-product-condition-requirements#6
+          content: - Hình ảnh so sánh với mô tả sản phẩm trên trang bán (nếu có sai lệch). > **Lưu ý**: Hình ảnh phải r...
+
+    [FILTERED - top 3]:
+      #1 score=0.2829 doc_id=seller-warranty-handling#10 
+          content: Mức phạt khi vi phạm quy định bảo hành  - **Phản hồi trễ**: Giảm 0.5 điểm uy tín/lần vi phạm. - **Từ...
+      #2 score=0.2200 doc_id=seller-return-refund-obligations#0 
+          content: # Quy định xử lý đổi trả dành cho người bán  ## 1. Tổng quan trách nhiệm  Người bán trên Shopee có t...
+      #3 score=0.2128 doc_id=seller-return-refund-obligations#4 
+          content: - Lý do từ chối hợp lệ bao gồm: sản phẩm không thuộc điều kiện đổi trả, người mua đã sử dụng/sửa chữ...
+
+============================================================
+STRATEGY: HeadingAware (size=500)
+Chunker: HeadingAwareChunker
+============================================================
+Total chunks indexed: 96
+
+--- Query 1: Thời hạn đổi trả là bao nhiêu ngày kể từ ngày nhận hàng?
+    Filter: None
+    Gold doc_id: buyer-return-refund-policy
+      #1 score=0.3476 doc_id=buyer-refund-process#15 
+          content: ## Theo dõi trạng thái hoàn tiền  Người mua có thể theo dõi trạng thái yêu cầu hoàn tiền tại mục **"...
+      #2 score=0.2804 doc_id=buyer-refund-process#7 
+          content: ## Giai đoạn 1: Gửi yêu cầu hoàn tiền  ).  **Thời hạn gửi yêu cầu**: Trong vòng **07 ngày**kể từ ngà...
+      #3 score=0.2633 doc_id=seller-warranty-handling#1 
+          content: ## 1. Tổng quan  Người bán có thể thiết lập chính sách bảo hành riêng cho cửa hàng hoặc từng sản phẩ...
+
+--- Query 2: Điều kiện để được đổi trả là gì?
+    Filter: None
+    Gold doc_id: buyer-return-refund-policy
+      #1 score=0.2399 doc_id=buyer-product-condition-requirements#3 
+          content: ### 1.2 Sản phẩm đã qua sử dụng nhưng còn nguyên chức năng  - Sản phẩm phải còn **nguyên vẹn về mặt ...
+      #2 score=0.2197 doc_id=general-terms-conditions#10 
+          content: ## 6. Giới hạn trách nhiệm  - Shopee đóng vai trò trung gian kết nối Người mua và Người bán; Shopee ...
+      #3 score=0.2056 doc_id=dispute-resolution-policy#7 
+          content: ## 4. Bằng chứng được chấp nhận  | Loại bằng chứng | Mô tả | |---|---| | Hình ảnh sản phẩm | Chụp th...
+
+--- Query 3: Quy trình hoàn tiền diễn ra như thế nào?
+    Filter: None
+    Gold doc_id: buyer-refund-process
+      #1 score=0.3496 doc_id=seller-return-refund-obligations#10 
+          content: ## 7. SLA (cam kết mức dịch vụ)  Người bán được khuyến nghị duy trì các chỉ số sau để đảm bảo xếp hạ...
+      #2 score=0.3252 doc_id=buyer-product-condition-requirements#5 
+          content: ## 3. Hình ảnh và bằng chứng  Người mua bắt buộc phải cung cấp **hình ảnh chụp thực tế** sản phẩm kh...
+      #3 score=0.2916 doc_id=seller-warranty-handling#4 
+          content: ### Bước 1: Tiếp nhận yêu cầu  Người mua gửi yêu cầu bảo hành qua mục "Hỗ trợ" trong đơn hàng, kèm t...
+
+--- Query 4: Những trường hợp nào không được đổi trả?
+    Filter: None
+    Gold doc_id: buyer-excluded-categories
+      #1 score=0.3099 doc_id=seller-return-refund-obligations#4 
+          content: ### 3.1 Đồng ý đổi trả  - Chấp nhận yêu cầu và cung cấp địa chỉ gửi hàng hoàn trả cho người mua. - S...
+      #2 score=0.2809 doc_id=buyer-refund-process#15 
+          content: ## Theo dõi trạng thái hoàn tiền  Người mua có thể theo dõi trạng thái yêu cầu hoàn tiền tại mục **"...
+      #3 score=0.2768 doc_id=seller-warranty-handling#6 
+          content: ### Bước 3: Phản hồi người mua  Người bán thông báo kết quả đánh giá cho người mua, đề xuất một tron...
+
+--- Query 5: Trong vòng bao lâu kể từ khi nhận yêu cầu, người bán phải phản hồi yêu cầu đổi t
+    Filter: {'audience': 'seller'}
+    Gold doc_id: seller-return-refund-obligations
+
+    [UNFILTERED - top 3 of 5]:
+      #1 score=0.2834 doc_id=dispute-resolution-policy#4
+          content: ### Cấp 1: Thương lượng trực tiếp  **Thời hạn**: Không giới hạn (khuyến khích giải quyết trong 07 ng...
+      #2 score=0.2660 doc_id=seller-return-refund-obligations#7
+          content: ## 4. Trách nhiệm về chi phí  | Tình huống | Người chịu phí | |---|---| | Lỗi thuộc về người bán (sa...
+      #3 score=0.2589 doc_id=seller-warranty-handling#0
+          content: # Quy trình xử lý bảo hành và khiếu nại dành cho người bán...
+
+    [FILTERED - top 3]:
+      #1 score=0.2660 doc_id=seller-return-refund-obligations#7 
+          content: ## 4. Trách nhiệm về chi phí  | Tình huống | Người chịu phí | |---|---| | Lỗi thuộc về người bán (sa...
+      #2 score=0.2589 doc_id=seller-warranty-handling#0 
+          content: # Quy trình xử lý bảo hành và khiếu nại dành cho người bán...
+      #3 score=0.1907 doc_id=seller-return-refund-obligations#8 
+          content: ## 5. Chính sách hoàn tiền cho người bán  - Sau khi yêu cầu đổi trả được xử lý thành công, số tiền h...
+
+
+============================================================
+A/B COMPARISON: metadata_filter effect
+Query: Thời hạn phản hồi yêu cầu đổi trả của người bán
+Filter: audience=seller
+============================================================
+
+  FixedSize (size=300, overlap=30):
+    Without filter (top-3 doc_ids): ['dispute-resolution-policy#9', 'general-terms-conditions#0', 'seller-warranty-handling#3']
+    With filter    (top-3 doc_ids): ['seller-warranty-handling#3', 'seller-warranty-handling#10', 'seller-return-refund-obligations#0']
+
+  Sentence (max=3 sentences):
+    Without filter (top-3 doc_ids): ['seller-warranty-handling#10', 'dispute-resolution-policy#12', 'buyer-product-condition-requirements#6']
+    With filter    (top-3 doc_ids): ['seller-warranty-handling#10', 'seller-return-refund-obligations#0', 'seller-return-refund-obligations#4']
+
+  HeadingAware (size=500):
+    Without filter (top-3 doc_ids): ['dispute-resolution-policy#4', 'seller-return-refund-obligations#7', 'seller-warranty-handling#0']
+    With filter    (top-3 doc_ids): ['seller-return-refund-obligations#7', 'seller-warranty-handling#0', 'seller-return-refund-obligations#8']

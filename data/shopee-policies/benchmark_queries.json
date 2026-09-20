@@ -1,0 +1,32 @@
+[
+  {
+    "query": "Thời hạn đổi trả là bao nhiêu ngày kể từ ngày nhận hàng?",
+    "gold_answer": "Người mua có thể yêu cầu đổi trả trong vòng 07 ngày kể từ ngày nhận được hàng, tính theo thời gian đơn hàng được cập nhật trạng thái 'Đã giao hàng'.",
+    "expected_doc_id": "buyer-return-refund-policy",
+    "filter": null
+  },
+  {
+    "query": "Điều kiện để được đổi trả là gì?",
+    "gold_answer": "Sản phẩm chưa qua sử dụng, còn nguyên vẹn tem nhãn, mác, bao bì đi kèm; không thuộc danh mục không áp dụng đổi trả; có hình ảnh/video xác nhận tình trạng sản phẩm; và yêu cầu được gửi trong thời hạn 07 ngày.",
+    "expected_doc_id": "buyer-return-refund-policy",
+    "filter": null
+  },
+  {
+    "query": "Quy trình hoàn tiền diễn ra như thế nào?",
+    "gold_answer": "Bước 1: Người mua gửi yêu cầu kèm hình ảnh. Bước 2: Người bán phản hồi trong 03 ngày làm việc. Bước 3: Người mua gửi sản phẩm về cho người bán. Bước 4: Sau khi người bán xác nhận đã nhận được sản phẩm, Shopee hoàn tiền vào tài khoản trong vòng 07 ngày làm việc.",
+    "expected_doc_id": "buyer-refund-process",
+    "filter": null
+  },
+  {
+    "query": "Những trường hợp nào không được đổi trả?",
+    "gold_answer": "Sản phẩm Freeship+, Combo, Bundle hoặc mua trong chương trình khuyến mãi; đã qua sử dụng, giặt, hư hỏng do lỗi người mua; thực phẩm, mỹ phẩm, sách, sản phẩm số; sản phẩm giảm giá/sale off; và yêu cầu gửi sau 07 ngày.",
+    "expected_doc_id": "buyer-excluded-categories",
+    "filter": null
+  },
+  {
+    "query": "Trong vòng bao lâu kể từ khi nhận yêu cầu, người bán phải phản hồi yêu cầu đổi trả?",
+    "gold_answer": "Người bán có 03 ngày làm việc để phản hồi yêu cầu đổi trả kể từ thời điểm nhận được thông báo. Nếu không phản hồi trong 03 ngày, yêu cầu sẽ tự động chuyển cho Bộ phận Hỗ trợ Shopee xử lý.",
+    "expected_doc_id": "seller-return-refund-obligations",
+    "filter": {"audience": "seller"}
+  }
+]
