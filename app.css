@@ -1,0 +1,464 @@
+/* ============================================================
+   app.css — K4-L3B Shopee Policy RAG Demo
+   Design tokens, components, response cards, Gradio overrides.
+   ============================================================ */
+
+/* ── Design tokens ─────────────────────────────────────────── */
+:root {
+  /* Brand */
+  --brand-orange:       #EE4D2D;
+  --brand-orange-light: #FFF3EF;
+  --brand-orange-hover: #D43D1A;
+
+  /* Neutrals */
+  --neutral-900: #1F2937;
+  --neutral-700: #374151;
+  --neutral-500: #6B7280;
+  --neutral-300: #D1D5DB;
+  --neutral-100: #F3F4F6;
+  --white:       #FFFFFF;
+
+  /* Status */
+  --green:  #10B981;
+  --yellow: #F59E0B;
+  --red:    #EF4444;
+  --blue:   #3B82F6;
+
+  /* Semantic */
+  --surface:        var(--white);
+  --surface-raised: var(--neutral-100);
+  --border:         var(--neutral-300);
+  --text-primary:   var(--neutral-900);
+  --text-secondary: var(--neutral-500);
+
+  /* Shadows */
+  --shadow-sm:  0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md:  0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-lg:  0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+
+  /* Radii */
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+}
+
+/* ── Typography ─────────────────────────────────────────────── */
+* {
+  font-family: 'Be Vietnam Pro', 'Segoe UI', system-ui, sans-serif !important;
+}
+
+body, .gradio-container {
+  background-color: var(--neutral-100) !important;
+  color: var(--text-primary);
+}
+
+/* ── App header ─────────────────────────────────────────────── */
+.app-header {
+  font-size: 1.1rem;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, var(--brand-orange) 0%, #FF6B35 100%);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Sidebar ───────────────────────────────────────────────── */
+#sidebar, .sidebar-btn {
+  background: var(--white) !important;
+  border-right: 1px solid var(--border) !important;
+}
+
+.sidebar-btn {
+  width: 100% !important;
+  margin-bottom: 6px !important;
+  justify-content: flex-start !important;
+}
+
+.audience-radio label {
+  font-weight: 600;
+  color: var(--neutral-700);
+}
+
+/* Status display */
+.status-display p {
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  margin: 0;
+}
+.status-ok   { color: var(--green); }
+.status-err  { color: var(--red); }
+.status-idle { color: var(--neutral-500); }
+
+/* ── Response cards (all 4 types) ──────────────────────────── */
+.response-card {
+  border-radius: var(--radius-md);
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  margin: 8px 0;
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--neutral-100);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--neutral-100);
+}
+
+.card-body {
+  padding: 14px;
+}
+
+/* Type badge pills */
+.type-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+}
+.type-badge-t { background: var(--green);  color: white; }
+.type-badge-n { background: var(--blue);    color: white; }
+.type-badge-a { background: var(--yellow);  color: var(--neutral-900); }
+.type-badge-e { background: var(--red);    color: white; }
+
+/* ── Type T — Trả lời ─────────────────────────────────────── */
+.type-t {
+  border-left: 4px solid var(--green);
+}
+
+.answer-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--neutral-900);
+  margin-bottom: 12px;
+}
+
+/* ── Type N — Navigation ───────────────────────────────────── */
+.type-n {
+  border-left: 4px solid var(--blue);
+}
+
+.result-row {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--neutral-100);
+}
+.result-row:last-child { border-bottom: none; }
+
+.result-rank {
+  font-weight: 700;
+  color: var(--neutral-500);
+  min-width: 24px;
+  font-size: 0.9rem;
+}
+
+.result-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.result-preview {
+  font-size: 0.82rem;
+  color: var(--neutral-500);
+  line-height: 1.4;
+}
+
+/* ── Score bar ─────────────────────────────────────────────── */
+.score-bar-container {
+  margin: 6px 0;
+}
+
+.score-bar-label {
+  font-size: 0.78rem;
+  color: var(--neutral-500);
+  margin-bottom: 3px;
+}
+
+.score-bar-track {
+  background: var(--neutral-100);
+  border-radius: 4px;
+  height: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.score-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease-in-out, background 0.3s ease;
+}
+
+/* ── Citation badge ───────────────────────────────────────── */
+.citation-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  background: var(--neutral-100);
+  color: var(--neutral-700);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  margin-top: 4px;
+}
+.citation-badge:hover {
+  background: var(--brand-orange-light);
+  color: var(--brand-orange);
+}
+
+/* ── Audience badge ────────────────────────────────────────── */
+.audience-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+/* ── Type A — Ambiguous ────────────────────────────────────── */
+.type-a {
+  border-left: 4px solid var(--yellow);
+}
+
+.ambiguous-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.audience-btn {
+  font-weight: 600;
+  border: none !important;
+  border-radius: var(--radius-md) !important;
+  padding: 10px 16px !important;
+  transition: transform 0.1s, opacity 0.1s !important;
+}
+.audience-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ── Type E — Error ────────────────────────────────────────── */
+.type-e {
+  border-left: 4px solid var(--red);
+}
+
+.error-text {
+  color: var(--neutral-700);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.error-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ── Compare mode ──────────────────────────────────────────── */
+.compare-row {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--neutral-100);
+}
+.compare-row:last-child { border-bottom: none; }
+
+.compare-label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--blue);
+  margin-bottom: 2px;
+}
+
+.compare-count {
+  font-size: 0.75rem;
+  color: var(--neutral-500);
+  margin-bottom: 6px;
+}
+
+.compare-chunks {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.chunk-mini {
+  font-size: 0.78rem;
+  color: var(--neutral-700);
+  background: var(--neutral-100);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.chunk-more {
+  font-size: 0.75rem;
+  color: var(--neutral-500);
+  font-style: italic;
+  padding-left: 8px;
+}
+
+/* ── Chunk cards (show chunks mode) ─────────────────────────── */
+.chunk-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.chunk-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--neutral-100);
+  overflow: hidden;
+}
+
+.chunk-card-header {
+  padding: 6px 10px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+}
+
+.chunk-doc-title {
+  font-weight: 600;
+  flex: 1;
+}
+
+.chunk-index {
+  color: var(--neutral-500);
+  font-size: 0.72rem;
+}
+
+.chunk-card-body {
+  padding: 8px 10px;
+  font-size: 0.8rem;
+  color: var(--neutral-700);
+  line-height: 1.5;
+}
+
+/* ── Stats table ───────────────────────────────────────────── */
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+.stats-table th, .stats-table td {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--neutral-100);
+  text-align: left;
+}
+.stats-table th {
+  color: var(--neutral-500);
+  font-weight: 600;
+}
+
+/* ── Animations ─────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+
+.fade-in {
+  animation: fadeIn 0.25s ease-out both;
+}
+
+.shake {
+  animation: shake 0.3s ease-in-out both;
+}
+
+/* Score bar JS animation target */
+.score-bar-fill.animated {
+  transition: width 0.3s ease-in-out;
+}
+
+/* ── Hover states ───────────────────────────────────────────── */
+.chunk-card:hover {
+  border-color: var(--brand-orange);
+  box-shadow: var(--shadow-sm);
+}
+
+.result-row:hover {
+  background: var(--brand-orange-light);
+  border-radius: var(--radius-sm);
+}
+
+/* ── Gradio overrides ───────────────────────────────────────── */
+/* Scope max-width to the main chat column, not the whole page */
+.main-content,
+[data-testid="column"] {
+  max-width: 1100px !important;
+}
+
+/* Chat bubbles — Gradio 6 uses .message inside shadow DOM */
+.gradio-container .message,
+.gradio-container [data-testid="chatbot"] .message {
+  border-radius: var(--radius-md) !important;
+}
+
+.gradio-container .message.user,
+.gradio-container [data-testid="chatbot"] .message.user {
+  background: var(--brand-orange) !important;
+  color: white !important;
+}
+
+/* Assistant messages: ensure readable text contrast */
+.gradio-container .message.assistant,
+.gradio-container [data-testid="chatbot"] .message.assistant {
+  background: var(--white) !important;
+  color: var(--neutral-900) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* Submit button */
+.primary-btn, button.primary {
+  background: var(--brand-orange) !important;
+  color: white !important;
+  border: none !important;
+  font-weight: 600 !important;
+}
+.primary-btn:hover, button.primary:hover {
+  background: var(--brand-orange-hover) !important;
+}
+
+/* Text input */
+textarea, input[type=text] {
+  border-radius: var(--radius-md) !important;
+  border-color: var(--border) !important;
+}
+
+/* Radio buttons */
+.radio-container label {
+  font-weight: 500;
+}
+
+/* Scrollbar styling */
+.chunk-grid::-webkit-scrollbar,
+.response-card::-webkit-scrollbar {
+  width: 6px;
+}
+.chunk-grid::-webkit-scrollbar-thumb,
+.response-card::-webkit-scrollbar-thumb {
+  background: var(--neutral-300);
+  border-radius: 3px;
+}
