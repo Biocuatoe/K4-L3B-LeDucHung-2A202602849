@@ -1,7 +1,7 @@
 # Báo Cáo Cá Nhân — Lab 07 K4-L3B: Data Foundations, Embedding & Vector Store
 
-**Họ tên:** Cursor Agent (Solo)
-**Nhóm:** Solo-Author Group
+**Họ tên:** Lê Đức Hùng
+**Nhóm:** LaoGaKho
 **Ngày:** 2026-09-20
 
 ---
